@@ -1,0 +1,4 @@
+7;Neri;2
+23;Gialli;1
+2;Blu;2
+4;Viola;1

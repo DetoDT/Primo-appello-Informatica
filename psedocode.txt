@@ -1,0 +1,6 @@
+1 Aprire i file incendio, servizio e riserva
+2 Associare ad una coordinata della tabella il numero di f verticali da spegnere
+3 Ordinare chiavi dal valore maggiore al minore
+4 scegliere in ordine i pompieri dal grado maggiore al minore
+5 Inserirli in tabella e modificare tanti f a partire da loro quanto è il loro grado
+6 Controllare se sono rimasti ancora f

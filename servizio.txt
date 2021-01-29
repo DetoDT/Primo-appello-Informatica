@@ -1,0 +1,3 @@
+1;Rossi;2
+5;Bianchi;3
+12;Verdi;3
