@@ -1,20 +1,8 @@
 from operator import itemgetter
-'''
-[
-['.', '.', '.', '.', 'f', 'f', 'f', 'f'], 
-['.', '.', '.', '.', '.', 'f', 'f', 'f'],
-['.', '.', '.', '.', '.', '.', 'f', 'f'],
-['.', '.', '.', '.', '.', '.', 'f', 'f'],
-['.', '.', '.', '.', '.', '.', 'f', 'f'],
-['.', '.', '.', '.', '.', '.', '.', '.'],
-['.', '.', '.', '.', '.', '.', '.', '.'], 
-['.', '.', '.', '.', '.', '.', '.', '.']
-]
-'''
 
-campo = open('c:/Users/franc/Documents/Coding/Python/Informatica Polito/Pompieri(primo appello)/incendio.txt', 'r')
-servizio = open('c:/Users/franc/Documents/Coding/Python/Informatica Polito/Pompieri(primo appello)/servizio.txt', 'r')
-riserva = open('c:/Users/franc/Documents/Coding/Python/Informatica Polito/Pompieri(primo appello)/riserva.txt', 'r')
+campo = open('incendio.txt', 'r')
+servizio = open('servizio.txt', 'r')
+riserva = open('riserva.txt', 'r')
 # Creo una tabella con lo schema del file incendio
 tab = []
 for line in campo:
@@ -53,9 +41,9 @@ for line in riserva:
 serviziopompieri = sorted(pompieri.items(), key=itemgetter(1), reverse=True)
 riserve = sorted(ris.items(), key=itemgetter(1), reverse=True)
 serviziopompieri.append(riserve)
+
 # Associo ogni pompiere ad una zona
 pompiere_zona = {}
-
 count = 0
 for i in pos:
     if i[1] != 0 and count < 3:
@@ -64,7 +52,7 @@ for i in pos:
     elif i[1] != 0 and count >= 3:
         pompiere_zona[i] = riserve[count - 3]
 
-# 'Schiero' i pompieri nella tab
+# 'Schiero' i pompieri nella tab e spegno l'incendio
 for key in pompiere_zona:
     pos1 = key[1]
     pos2 = key[0]
@@ -83,6 +71,7 @@ for key in pompiere_zona:
             if tab[n][pos2] == 'f':
                 tab[n][pos2] = '+'
                 n -= 1
+# Controllo se sono rimaste zone incendiate
 count = 1
 for l in tab:
     count += 1
@@ -91,26 +80,10 @@ for l in tab:
         break
     elif count == len(tab) and 'f' not in l:
         print('Incendio controllato')
+
+# Stampo la tabella finale
 for i in tab:
     print(i)
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 campo.close()
 servizio.close()
